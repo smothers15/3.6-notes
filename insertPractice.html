@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h3>What is this?</h3>
+            <h4>I don't want this</h4>
+        </div>
+    </div>
+<script>
+    const content = document.querySelector('.content');
+
+    content.innerHTML = '<h1 class="gone">I love Zelda</h1><h4>Another message</h4>'
+
+    const zelda = document.createElement('h1');
+    zelda.innerHTML = 'I love Zelda';
+    content.appendChild(zelda);
+
+    const nums = document.createElement('h3');
+    nums.innerHTML = '1,2,3 and 4';
+    content.appendChild(nums);
+
+    const colors = document.createElement('h2');
+    colors.innerHTML = 'Green, Blue and Yellow';
+    content.appendChild(colors);
+
+    const food1 = document.createElement('h5');
+    food1.innerHTML = 'Pasta, Bread and Potatoes';
+    content.appendChild(food1);
+
+    const food = document.createElement('h1');
+    food.innerHTML = 'I love Pizza';
+    content.insertAdjacentElement('afterend', food);
+
+    const unwantedElement = document.querySelector('h4');
+    unwantedElement.remove();
+
+    const unwantedElement2 = document.querySelector('.gone');
+    unwantedElement2.remove();
+</script>
+</body>
+</html>
