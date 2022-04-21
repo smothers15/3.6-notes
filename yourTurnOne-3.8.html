@@ -19,21 +19,24 @@
             </div>
         </div>
         <button name="hello">Say Hello</button>
+        <div class="output">
 
+        </div>
     </div>
 </div>
 <script>
     const content = document.querySelector('.content');
+    const output = document.querySelector('.output');
     const firstName = document.getElementById('first');
     const lastName = document.getElementById('last');
     const submit = document.querySelector(`[name="hello"]`);
 
     submit.addEventListener('click', function(e){
-        clearUser();
+        //clearUser();
         let name = document.createElement('h3');
         name.innerHTML = nameUser();
         console.log(name);
-        content.insertAdjacentElement('beforeend', name);
+        output.insertAdjacentElement('afterbegin', name);
     });
     function nameUser() {
 
