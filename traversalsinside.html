@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <ul id="first">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ul id="second">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+    </div>
+</div>
+<script>
+    const firstList = document.getElementById('first');
+    const secondList = document.getElementById('second');
+
+    //Drill down one
+    //creates a nodeList. Not and array, but very similar.
+    console.log(firstList.children);
+
+    //Prints out each item inside of the ul
+    for(let i=0; i<firstList.children.length; i++){
+        console.log(firstList.children[i].textContent);
+    }
+
+    //Prints out each item inside of the ul
+    for(let i=0; i<secondList.children.length; i++){
+        console.log(secondList.children[i].textContent);
+    }
+
+    //Go up one
+    console.log(firstList.parentElement);
+
+    //Give me the next element on the same level
+    console.log(firstList.nextElementSibling);
+
+    //replace secondList with firstList.nextElementSibling, as they are the same thing
+    for(let i=0; i<firstList.nextElementSibling.children.length; i++){
+        console.log(firstList.nextElementSibling.children[i].textContent);
+    }
+
+    //Give me the previous element on the same level
+    console.log(secondList.previousElementSibling);
+
+    //Print all the children elements of the previous element on the same level as secondList
+    for(let i=0; i<secondList.previousElementSibling.children; i++){
+        console.log(secondList.previousElementSibling.children[i].textContent);
+    }
+
+    console.log(firstList.previousElementSibling);
+</script>
+</body>
+</html>
