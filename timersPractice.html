@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timers Practice</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .red{
+            background-color: darkred;
+        }
+        .blue{
+            background-color: deepskyblue;
+        }
+        .green{
+            background-color: forestgreen;
+        }
+        .grey{
+            background-color: slategrey;
+        }
+        .crimson{
+            background-color: crimson;
+        }
+        .colors{
+            padding: 15px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <button id="remove">Click Me!</button>
+        <div class="colors" id="colors">
+            <button id="random">Random Colors</button>
+            <button id="choice">Stop Random</button>
+        </div>
+    </div>
+</div>
+<script>
+    const remove = document.getElementById("remove");
+    const random = document.getElementById("random");
+    const choice = document.getElementById("choice");
+    const canvas = document.getElementById("colors");
+    let colorsList = ["red", "blue", "green", "grey", "crimson"];
+    let ran;
+    let interval;
+
+    remove.addEventListener('click', function(){
+        setTimeout(function(){
+            remove.remove();
+        }, 3000)
+    })
+    random.addEventListener('click', function(){
+        if(!interval){
+            interval = setInterval(function(){
+                canvas.classList.remove(colorsList[ran]);
+                ran = Math.round(Math.random()*4);
+                console.log(ran);
+                canvas.classList.add(colorsList[ran]);
+            }, 5000)
+        }
+
+    })
+
+    choice.addEventListener('click', function(){
+        if(interval){
+            clearInterval(interval);
+            interval = null;
+        }
+    })
+</script>
+</body>
+</html>
